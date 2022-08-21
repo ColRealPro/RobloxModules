@@ -1,5 +1,6 @@
 # CPM.lua
 How to use:
+
   CPM requires a little bit of setup before using
   1. Create a screengui and name it "Particles"
   2. Create a frame inside that screengui and also name it "Particles"
