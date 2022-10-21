@@ -69,6 +69,13 @@ function CreateUniform2D(Points: number, Resolution: number)
 
 	for i=1,Points do
 		local pos = Vector2.new(math.random(1, Resolution), math.random(1,Resolution)) -- Generates a random position within the resolution
+		local function checkPos() -- function to check if the position is already inside the table, if it is then regenerate it
+			if table.find(PointsTable,pos) then -- check if its in the table
+				pos = Vector2.new(math.random(1, Resolution), math.random(1,Resolution)) -- regenerate
+				checkPos() -- call the function again to make sure its not in the table again (rare chance)
+			end
+		end
+		checkPos()
 		table.insert(PointsTable, pos) -- inserts the position into the pointsTable
 	end
 
@@ -161,7 +168,7 @@ function FireworkExplosion(Position: UDim2)
 		local direction = Vector2.new(math.cos(frame.Rotation), math.sin(frame.Rotation)) -- get direction
 		local speed: number = 0 -- speed of frame (0 because its set below)
 		if not table.find(MiddlePoints, v) then
-			speed = (ResolutionY * .26) * (100/(VectorPoints[i] - Vector2.new(0,0)).Magnitude) -- Outside Point
+			speed = (ResolutionY * .26) * (128/(VectorPoints[i] - Vector2.new(0,0)).Magnitude) -- Outside Point
 		else
 			speed = ResolutionY * .26 * (50/(VectorPoints[i] - Vector2.new(0,0)).Magnitude) -- Inside Point
 		end
