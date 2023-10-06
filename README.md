@@ -81,3 +81,90 @@ ScrollFix:Stop()
 Description: Stops the ScrollFix, this will stop automatically scaling the frame
 <br>Params: None
 <br>Returns: nil 
+
+GitHub Copilot: Here is the updated documentation for the `BarePhysics` module:
+
+# BarePhysics.lua
+### How to use:
+
+Creating a new physics object:
+```lua
+local Physics = BarePhysics.new(Part)
+```
+
+Starting the simulation:
+```lua
+local Physics = BarePhysics.new(Part)
+Physics:Run()
+```
+
+Stopping the simulation:
+```lua
+local Physics = BarePhysics.new(Part)
+Physics:Stop()
+```
+
+### Documentation:
+
+```lua
+BarePhysics.new(Part)
+```
+Description: Creates a new physics object for the given part
+<br>Params: Part
+<br>Returns: BarePhysics
+
+```lua
+BarePhysics:ApplyVelocity(velocity: Vector3)
+```
+Description: Applies the given velocity to the physics object
+<br>Params: velocity (Vector3)
+<br>Returns: nil
+
+```lua
+BarePhysics:SetGravity(gravity: number)
+```
+Description: Sets the gravity for the physics object
+<br>Params: gravity (number)
+<br>Returns: nil
+
+```lua
+BarePhysics:SetTimescale(timescale: number)
+```
+Description: Sets the timescale for the physics object
+<br>Params: timescale (number)
+<br>Returns: nil
+
+```lua
+BarePhysics:SetFacingDirection(enabled: boolean)
+```
+Description: Sets whether the part should face the direction of its velocity
+<br>Params: enabled (boolean)
+<br>Returns: nil
+
+```lua
+BarePhysics:GetTimeUntilCollision(position: Vector3)
+```
+Description: Gets the time until the part collides with the given position
+<br>Params: position (Vector3)
+<br>Returns: number or nil
+
+```lua
+BarePhysics:Run()
+```
+Description: Starts the physics simulation for the physics object
+<br>Params: None
+<br>Returns: nil
+
+```lua
+BarePhysics:Stop()
+```
+Description: Stops the physics simulation for the physics object
+<br>Params: None
+<br>Returns: nil
+
+```lua
+BarePhysics:Destroy()
+```
+Description: Destroys the physics object and stops the simulation if it is currently running
+<br>Params: None
+<br>Returns: nil
